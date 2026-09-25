@@ -39,8 +39,8 @@ function clean(value?: string) {
 
 /**
  * The conversion snippet runs inside Acuity's sandboxed confirmation frame,
- * which posts with an opaque ("null") origin, so accept that alongside
- * Acuity's own domains.
+ * which posts from conversion-tracking-sandbox.acuityinnovation.com (or an
+ * opaque "null" origin), so accept those alongside Acuity's own domains.
  */
 function isTrustedOrigin(origin: string) {
   if (origin === "null") return true;
@@ -48,6 +48,7 @@ function isTrustedOrigin(origin: string) {
     const host = new URL(origin).hostname;
     return (
       host.endsWith("acuityscheduling.com") ||
+      host.endsWith("acuityinnovation.com") ||
       host.endsWith("as.me") ||
       host.endsWith("squarespacescheduling.com") ||
       host === new URL(SCHEDULER_URL).hostname
