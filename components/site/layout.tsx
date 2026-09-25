@@ -70,23 +70,28 @@ export type MemberResult = {
   details: string;
   story: string;
   image: string;
+  width: number;
+  height: number;
 };
 
-// Placeholder copy from the design — fill in the blanks and add real members.
 const MEMBER_RESULTS: MemberResult[] = [
   {
-    name: "ADRIAN",
-    details: "47 YEARS OLD | MEMBER SINCE 2021",
+    name: "CHRIS",
+    details: "38 YEARS OLD | MEMBER FOR 2 YEARS",
     story:
-      "Adrian came to us with a very clear goal. losing weight for his grandson. It took tons of work but it turns out we were able to help him do _______ in ________. His favorite part was ________.",
-    image: "/images/result-adrian.png",
+      "Chris is a chef at a local restaurant, which means long shifts on his feet and food all around him. He came to us at 315 pounds, ready for a change. Two years of steady training later, he's down to 220. That's 95 pounds lighter, and stronger than ever.",
+    image: "/images/result-chris.jpg",
+    width: 1872,
+    height: 1872,
   },
   {
-    name: "ADRIAN",
-    details: "47 YEARS OLD | MEMBER SINCE 2021",
+    name: "RAY",
+    details: "36 YEARS OLD | MEMBER FOR 2 YEARS",
     story:
-      "Adrian came to us with a very clear goal. losing weight for his grandson. It took tons of work but it turns out we were able to help him do _______ in ________. His favorite part was ________.",
-    image: "/images/result-adrian.png",
+      "Ray showed up six days a week and put in the work every single time. No shortcuts, just grinding. Two years later, he's gone from 300 pounds to 195. That's 105 pounds down, with plenty of energy to keep up with his boys.",
+    image: "/images/result-ray.jpg",
+    width: 1322,
+    height: 1177,
   },
 ];
 
@@ -117,10 +122,10 @@ export function Results() {
             <Image
               src={member.image}
               alt={`${member.name.charAt(0)}${member.name.slice(1).toLowerCase()} before and after`}
-              width={478}
-              height={478}
-              sizes="(min-width: 1024px) 440px, 85vw"
-              className="aspect-square w-full shrink-0 object-cover lg:w-[440px]"
+              width={member.width}
+              height={member.height}
+              sizes="(min-width: 1024px) 500px, 85vw"
+              className="h-auto w-full shrink-0 lg:h-[440px] lg:w-auto"
             />
           </article>
         ))}
