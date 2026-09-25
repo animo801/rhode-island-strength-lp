@@ -42,7 +42,7 @@ export function Hero() {
 
 export function WhyNotWorking() {
   return (
-    <section id="why" className="scroll-mt-4 bg-ink-light px-4 pt-24 pb-24 sm:px-8 lg:py-[112px]">
+    <section id="why" className="scroll-mt-24 bg-ink-light px-4 pt-24 pb-24 sm:px-8 lg:py-[112px]">
       <div className="mx-auto max-w-[720px]">
         <h2 className="space-y-[1lh] font-display text-5xl leading-[0.78] font-extrabold sm:text-[64px] lg:text-[80px]">
           <span className="block">WHY HASN’T THE GYM WORKED YET?</span>

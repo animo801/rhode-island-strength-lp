@@ -77,7 +77,7 @@ const CLIENT_TEXTS = [
 
 export function ClientTexts() {
   return (
-    <section id="results" className="scroll-mt-4 pt-24 pb-24 lg:pt-[112px] lg:pb-[120px]">
+    <section id="results" className="scroll-mt-24 pt-24 pb-24 lg:pt-[112px] lg:pb-[120px]">
       <SectionHeading underline>WHAT OUR CLIENTS HAVE SAID IN TEXTS WITH OUR TRAINERS</SectionHeading>
       <div className="no-scrollbar mt-14 flex snap-x snap-mandatory scroll-px-4 items-start gap-6 overflow-x-auto px-4 sm:scroll-px-8 sm:px-8 lg:scroll-px-[106px] lg:gap-[36px] lg:px-[106px]">
         {CLIENT_TEXTS.map((text, i) => (

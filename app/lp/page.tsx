@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ClientTexts, Hero, WhatYouLearn } from "@/components/lp/sections";
-import { Booking, Footer, Header } from "@/components/site/layout";
+import { Booking, Footer, Header, Results } from "@/components/site/layout";
 import { CtaButton } from "@/components/site/primitives";
 
 export const metadata: Metadata = {
@@ -20,6 +20,7 @@ export default function LandingPage() {
         <Hero />
         <WhatYouLearn />
         <ClientTexts />
+        <Results />
         <Booking title="BOOK YOUR FREE CALL" />
       </main>
       <Footer />

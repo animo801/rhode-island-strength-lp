@@ -6,7 +6,7 @@ import { SectionHeading } from "./primitives";
 /** Logo on the left; `children` fills the right side (menu or CTA). */
 export function Header({ logoHref = "/", children }: { logoHref?: string; children?: ReactNode }) {
   return (
-    <header className="relative z-30 flex items-center justify-between px-4 py-5 sm:px-8">
+    <header className="sticky top-0 z-40 flex items-center justify-between bg-ink px-4 py-5 sm:px-8">
       <a href={logoHref} className="flex items-center gap-3">
         <Image src="/images/logo-mark.svg" alt="" width={56} height={56} unoptimized />
         <span className="flex flex-col font-logo leading-none">
@@ -40,7 +40,7 @@ export function StepCards({
   className: string;
 }) {
   return (
-    <section id={id} className={`scroll-mt-4 ${className}`}>
+    <section id={id} className={`scroll-mt-24 ${className}`}>
       <SectionHeading>{heading}</SectionHeading>
       <div className="mx-auto mt-8 grid max-w-[1440px] gap-4 px-4 sm:px-8 lg:grid-cols-3 lg:px-16">
         {cards.map((card) => (
@@ -65,9 +65,73 @@ export function StepCards({
   );
 }
 
+export type MemberResult = {
+  name: string;
+  details: string;
+  story: string;
+  image: string;
+};
+
+// Placeholder copy from the design — fill in the blanks and add real members.
+const MEMBER_RESULTS: MemberResult[] = [
+  {
+    name: "ADRIAN",
+    details: "47 YEARS OLD | MEMBER SINCE 2021",
+    story:
+      "Adrian came to us with a very clear goal. losing weight for his grandson. It took tons of work but it turns out we were able to help him do _______ in ________. His favorite part was ________.",
+    image: "/images/result-adrian.png",
+  },
+  {
+    name: "ADRIAN",
+    details: "47 YEARS OLD | MEMBER SINCE 2021",
+    story:
+      "Adrian came to us with a very clear goal. losing weight for his grandson. It took tons of work but it turns out we were able to help him do _______ in ________. His favorite part was ________.",
+    image: "/images/result-adrian.png",
+  },
+];
+
+/** Horizontally scrolling member result cards (story + before/after photo). */
+export function Results() {
+  return (
+    <section id="member-results" className="scroll-mt-24 bg-ink-light pt-24 pb-24 lg:pt-[112px] lg:pb-[172px]">
+      <div className="mx-auto max-w-[633px] px-4 text-center">
+        <h2 className="font-display text-5xl leading-[0.78] font-extrabold sm:text-[72px]">
+          AND SEE THEIR ACTUAL RESULTS
+        </h2>
+      </div>
+      <div className="no-scrollbar mt-12 flex snap-x snap-mandatory scroll-px-4 gap-6 overflow-x-auto px-4 sm:scroll-px-8 sm:px-8 lg:scroll-px-[76px] lg:gap-12 lg:px-[76px]">
+        {MEMBER_RESULTS.map((member, i) => (
+          <article
+            key={i}
+            className="flex w-[85vw] shrink-0 snap-start flex-col gap-8 bg-white/10 p-6 sm:p-10 lg:flex-row lg:items-center lg:gap-10 lg:p-14"
+          >
+            <div className="lg:flex-1">
+              <h3 className="font-display text-[40px] leading-[0.78] font-extrabold lg:text-[56px]">
+                {member.name}
+              </h3>
+              <p className="mt-3 font-display text-xl leading-[0.78] font-bold opacity-50 lg:mt-[14px] lg:text-[28px]">
+                {member.details}
+              </p>
+              <p className="mt-5 text-xl leading-[1.5] lg:mt-6 lg:text-[28px]">{member.story}</p>
+            </div>
+            <Image
+              src={member.image}
+              alt={`${member.name.charAt(0)}${member.name.slice(1).toLowerCase()} before and after`}
+              width={478}
+              height={478}
+              sizes="(min-width: 1024px) 440px, 85vw"
+              className="aspect-square w-full shrink-0 object-cover lg:w-[440px]"
+            />
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export function Booking({ title }: { title: string }) {
   return (
-    <section id="book" className="scroll-mt-4 bg-ink-light px-4 pt-24 pb-24 sm:px-8 lg:pt-[112px] lg:pb-[120px]">
+    <section id="book" className="scroll-mt-24 px-4 pt-24 pb-24 sm:px-8 lg:pt-[112px] lg:pb-[120px]">
       <SectionHeading>{title}</SectionHeading>
       <p className="mx-auto mt-6 max-w-[649px] text-center text-2xl leading-[1.2]">
         Pick a time that works for you. It takes about two minutes.

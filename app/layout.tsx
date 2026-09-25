@@ -12,7 +12,7 @@ const barlow = Barlow({
 const barlowCondensed = Barlow_Condensed({
   variable: "--font-barlow-condensed",
   subsets: ["latin"],
-  weight: ["800"],
+  weight: ["700", "800"],
 });
 
 const leagueGothic = League_Gothic({
