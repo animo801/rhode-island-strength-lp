@@ -1,0 +1,26 @@
+<!--
+  Paste this into Acuity: Integrations > Custom Conversion Tracking (Analytics section).
+  Acuity runs it on the booking confirmation, swapping the %placeholders% for
+  the appointment's details, and it posts them up to the landing page, which
+  fires the Meta "AcuityBooking" event (components/AcuityEmbed.tsx).
+  window.top reaches the landing page through Acuity's nested iframes.
+-->
+<script>
+  (function () {
+    try {
+      window.top.postMessage(
+        {
+          source: "acuity-booking",
+          id: "%id%",
+          email: "%email%",
+          firstName: "%first%",
+          lastName: "%last%",
+          phone: "%phone%",
+          price: "%price%",
+          appointmentType: "%appointmentType%"
+        },
+        "*"
+      );
+    } catch (e) {}
+  })();
+</script>
